@@ -1,0 +1,12 @@
+{
+  "name": "aboudi",
+  "version": "1.0.0",
+  "description": "Aboudi chat app scaffold to integrate AI conversations.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
