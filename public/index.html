@@ -9,7 +9,7 @@
   <body>
     <main class="container">
       <h1>عبودي</h1>
-      <p class="hint">أرسل رسالة، وسيتم تمريرها إلى API في الخادم.</p>
+      <p class="hint">نسخة جاهزة: محادثة + إضافة معرفة محلية (تدريب بسيط).</p>
 
       <section id="chatBox" class="chat-box" aria-live="polite"></section>
 
@@ -22,6 +22,18 @@
         ></textarea>
         <button type="submit">إرسال</button>
       </form>
+
+      <hr />
+
+      <h2>إضافة معرفة (Training بسيط)</h2>
+      <form id="trainForm" class="train-form">
+        <input id="questionInput" type="text" placeholder="السؤال" required />
+        <textarea id="answerInput" rows="3" placeholder="الإجابة" required></textarea>
+        <input id="tagsInput" type="text" placeholder="وسوم اختيارية (مثال: اسعار, دعم)" />
+        <button type="submit">حفظ المعرفة</button>
+      </form>
+
+      <p id="trainStatus" class="hint"></p>
     </main>
 
     <script src="app.js"></script>
