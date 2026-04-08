@@ -6,6 +6,7 @@ const questionInput = document.getElementById("questionInput");
 const answerInput = document.getElementById("answerInput");
 const tagsInput = document.getElementById("tagsInput");
 const chatBox = document.getElementById("chatBox");
+const dialectSelect = document.getElementById("dialectSelect");
 
 const conversation = [];
 
@@ -35,7 +36,7 @@ chatForm.addEventListener("submit", async (event) => {
     const response = await fetch("/api/chat", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ messages: conversation }),
+      body: JSON.stringify({ messages: conversation, dialect: dialectSelect.value }),
     });
 
     const data = await response.json();

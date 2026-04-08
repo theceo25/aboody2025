@@ -95,7 +95,7 @@ app.post("/api/train", (req, res) => {
 });
 
 app.post("/api/chat", async (req, res) => {
-  const { messages } = req.body || {};
+  const { messages, dialect } = req.body || {};
 
   if (!Array.isArray(messages) || messages.length === 0) {
     return res.status(400).json({ error: "messages array is required." });
@@ -117,10 +117,15 @@ app.post("/api/chat", async (req, res) => {
           .join("\n\n")
       : "لا يوجد مراجع مطابقة في قاعدة المعرفة.";
 
+  const languageStyle =
+    dialect === "msa"
+      ? "أجب بالعربية الفصحى المبسطة."
+      : "أجب باللهجة العراقية بشكل طبيعي وواضح، ومع الحفاظ على الاحترام.";
+
   const systemInstruction = `
 أنت مساعد ذكي باسم "عبودي" داخل تطبيق دردشة عربي.
 القواعد:
-1) أجب بالعربية الفصحى المبسطة وبأسلوب ودود ومباشر.
+1) ${languageStyle}
 2) أعطِ إجابة عملية على شكل نقاط قصيرة عندما يكون السؤال إجرائيًا.
 3) استخدم المراجع المحلية التالية كأولوية قصوى إذا كانت مرتبطة بالسؤال:
 ${contextText}

@@ -93,3 +93,15 @@ button:disabled {
   opacity: 0.6;
   cursor: wait;
 }
+
+select {
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 10px;
+  background: white;
+}
+
+label {
+  font-size: 14px;
+  color: var(--muted);
+}
